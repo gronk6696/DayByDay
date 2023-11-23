@@ -1,0 +1,114 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Threading;
+using UnityEditor.XR;
+
+public class introController : MonoBehaviour
+{
+    public TextMeshProUGUI time7am;
+    public TextMeshProUGUI time730am;
+    public TextMeshProUGUI time8am;
+    public AudioSource alarmSequence;
+    public float timer5sec = 5;
+    public float timer3sec = 3;
+    public bool timer5needed;
+    public bool timer3needed;
+    public GameObject minigamePanel;
+    public bool goto730;
+    public bool goto8;
+    public bool gotoMini;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        time7am.enabled = false;
+        time730am.enabled = false;
+        time8am.enabled = false;
+        minigamePanel.SetActive(false);
+        StartSequence();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (timer5needed == true)
+        {
+            timer5sec = timer5sec - Time.deltaTime;
+        }
+        if (timer3needed == true)
+        {
+            timer3sec = timer3sec - Time.deltaTime;
+        }
+
+        if (timer5sec < 0)
+        {
+            timer5needed = false;
+            timer5sec = 5;
+        }
+
+        if (timer3sec < 0)
+        {
+            timer3needed = false;
+            timer3sec = 3;
+        }
+        
+    }
+
+    void StartSequence()
+    {
+        time7am.enabled = true;
+        alarmSequence.Play();
+        timer5needed = true;
+        timer3needed = true;
+        if (timer3sec < 0)
+        { time7am.enabled = false; }
+        if (timer5sec < 0)
+        { goto730 = true;
+            goto730 = false;
+        }
+        Debug.Log("yoooo");
+
+
+        if (goto730 == true)
+        {
+            time730am.enabled = true;
+            alarmSequence.Play();
+            timer5needed = true;
+            timer3needed = true;
+            if(timer3sec < 1)
+            {  time730am.enabled = false;}
+            Debug.Log("why wont it work");
+            if(timer5sec < 1)
+            { goto8 = true;
+                goto730 = false;
+            }
+            Debug.Log("yoooo2");
+        }
+
+        if (goto8 == true)
+        {
+            time8am.enabled = true;
+            alarmSequence.Play();
+            timer5needed = true;
+            timer3needed = true;
+            if(timer3sec < 0)
+            { time8am.enabled = false; }
+            if (timer5sec < 0)
+            {
+                gotoMini = true;
+                goto8 = false;
+            }
+            Debug.Log("yoooo3");
+        }
+        
+        if (gotoMini == true)
+        {
+            minigamePanel.SetActive(true);
+        }
+        
+    }
+}
