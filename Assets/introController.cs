@@ -55,7 +55,10 @@ public class introController : MonoBehaviour
             timer3needed = false;
             timer3sec = 3;
         }
-        
+        if (gotoMini == true)
+        {
+            minigamePanel.SetActive(true);
+        }
     }
 
     void StartSequence()
@@ -64,11 +67,14 @@ public class introController : MonoBehaviour
         alarmSequence.Play();
         timer5needed = true;
         timer3needed = true;
-        if (timer3sec < 0)
-        { time7am.enabled = false; }
-        if (timer5sec < 0)
-        { goto730 = true;
-            goto730 = false;
+        if (timer3sec <= 1)
+        {
+            time7am.enabled = false;
+            Debug.Log("hi");
+        }
+        if (timer5sec <= 1)
+        {
+            goto730 = true;
         }
         Debug.Log("yoooo");
 
@@ -79,11 +85,16 @@ public class introController : MonoBehaviour
             alarmSequence.Play();
             timer5needed = true;
             timer3needed = true;
+
             if(timer3sec < 1)
-            {  time730am.enabled = false;}
+            {
+                time730am.enabled = false;
+            }
             Debug.Log("why wont it work");
+
             if(timer5sec < 1)
-            { goto8 = true;
+            {
+                goto8 = true;
                 goto730 = false;
             }
             Debug.Log("yoooo2");
@@ -105,10 +116,7 @@ public class introController : MonoBehaviour
             Debug.Log("yoooo3");
         }
         
-        if (gotoMini == true)
-        {
-            minigamePanel.SetActive(true);
-        }
+        
         
     }
 }

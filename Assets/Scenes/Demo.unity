@@ -1580,6 +1580,9 @@ MonoBehaviour:
   timer5needed: 0
   timer3needed: 0
   minigamePanel: {fileID: 1017148109}
+  goto730: 0
+  goto8: 0
+  gotoMini: 0
 --- !u!4 &2049387493
 Transform:
   m_ObjectHideFlags: 0
