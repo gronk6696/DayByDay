@@ -18,9 +18,7 @@ public class playerControls : MonoBehaviour
 
     private Transform objectTransform;
 
-    public TextMeshProUGUI uiPromptSpace;
-
-
+    
     //inputs
     private void OnMoveForward(InputValue value)
     {
@@ -63,28 +61,8 @@ public class playerControls : MonoBehaviour
         MoveLogicMethod();
     }
 
-    void OnTriggerStay(Collider col)
-    {
-        if (col.gameObject.tag == "interact")
-        {
-            uiPromptSpace.enabled = true;
-            Debug.Log("Near interactable");
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Destroy(col.gameObject);
-                uiPromptSpace.enabled = false;
-                Debug.Log("Interacted");
-            }
-        }
-        else
-        {
-            uiPromptSpace.enabled = false;
-        }
-    }
-
     void Start()
     {
-        uiPromptSpace.enabled = false;
         objectTransform = transform;
     }
 

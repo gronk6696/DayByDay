@@ -24,15 +24,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "turnMouse",
-                    "type": "Value",
-                    "id": "2676c836-3c2b-4911-9336-139c450ec8a8",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "turnLeft",
                     "type": "Value",
                     "id": "cca316b2-751d-4501-8666-781c1c6ebffe",
@@ -113,17 +104,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "66d059a8-a593-4360-81e8-63e2ed9b1118",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "turnMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
