@@ -11,10 +11,13 @@ public class playerControls : MonoBehaviour
     [SerializeField] private float speedMove = 500;
     [SerializeField] private float speedRotate = 100;
 
+
+    public GameObject buttonGamePanel;
     private float forwardInputValue;
     private float backwardInputValue;
     private float rightInputValue;
     private float leftInputValue;
+    private float spaceInputValue;
 
     private Transform objectTransform;
 
@@ -64,10 +67,22 @@ public class playerControls : MonoBehaviour
     void Start()
     {
         objectTransform = transform;
+        buttonGamePanel.SetActive(false);
     }
 
     void Update()
     {
         
+    }
+
+    public void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "buttonGame")
+        {
+            if()
+            {
+                buttonGamePanel.SetActive(true);
+            }
+        }
     }
 }

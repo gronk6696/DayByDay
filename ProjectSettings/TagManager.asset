@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - interact
+  - buttonGame
   layers:
   - Default
   - TransparentFX

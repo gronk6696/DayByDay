@@ -21,6 +21,10 @@ public class introController : MonoBehaviour
     public bool goto730;
     public bool goto8;
     public bool gotoMini;
+    public bool happened7am;
+    public bool happened730am;
+    public bool happened8am;
+    public bool happenedMinigame;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +33,7 @@ public class introController : MonoBehaviour
         time730am.enabled = false;
         time8am.enabled = false;
         minigamePanel.SetActive(false);
-        StartSequence();
+        
     }
 
     // Update is called once per frame
@@ -59,62 +63,74 @@ public class introController : MonoBehaviour
         {
             minigamePanel.SetActive(true);
         }
+        StartSequence();
     }
 
     void StartSequence()
     {
-        time7am.enabled = true;
-        alarmSequence.Play();
-        timer5needed = true;
-        timer3needed = true;
-        if (timer3sec <= 1)
+        if (happened7am == false)
         {
-            time7am.enabled = false;
-            Debug.Log("hi");
-        }
-        if (timer5sec <= 1)
-        {
-            goto730 = true;
-        }
-        Debug.Log("yoooo");
-
-
-        if (goto730 == true)
-        {
-            time730am.enabled = true;
+            happened7am = true;
+            time7am.enabled = true;
             alarmSequence.Play();
             timer5needed = true;
             timer3needed = true;
-
-            if(timer3sec < 1)
+            if (timer3sec <= 1)
             {
-                time730am.enabled = false;
+                time7am.enabled = false;
+                Debug.Log("hi");
             }
-            Debug.Log("why wont it work");
-
-            if(timer5sec < 1)
+            if (timer5sec <= 1)
             {
-                goto8 = true;
-                goto730 = false;
+                goto730 = true;
             }
-            Debug.Log("yoooo2");
+            Debug.Log("yoooo");
         }
 
-        if (goto8 == true)
+        if (happened730am == false)
         {
-            time8am.enabled = true;
-            alarmSequence.Play();
-            timer5needed = true;
-            timer3needed = true;
-            if(timer3sec < 0)
-            { time8am.enabled = false; }
-            if (timer5sec < 0)
+            happened730am = true;
+            if (goto730 == true)
             {
-                gotoMini = true;
-                goto8 = false;
+                time730am.enabled = true;
+                alarmSequence.Play();
+                timer5needed = true;
+                timer3needed = true;
+
+                if (timer3sec < 1)
+                {
+                    time730am.enabled = false;
+                }
+                Debug.Log("why wont it work");
+
+                if (timer5sec < 1)
+                {
+                    goto8 = true;
+                    goto730 = false;
+                }
+                Debug.Log("yoooo2");
             }
-            Debug.Log("yoooo3");
         }
+
+            if (happened8am == false)
+            {
+                happened8am = true;
+                if (goto8 == true)
+                {
+                    time8am.enabled = true;
+                    alarmSequence.Play();
+                    timer5needed = true;
+                    timer3needed = true;
+                    if (timer3sec < 0)
+                    { time8am.enabled = false; }
+                    if (timer5sec < 0)
+                    {
+                        gotoMini = true;
+                        goto8 = false;
+                    }
+                    Debug.Log("yoooo3");
+                }
+            }
         
         
         
