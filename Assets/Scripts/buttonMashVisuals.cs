@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using JetBrains.Annotations;
+using System.Linq;
+
 
 public class buttonMashVisuals : MonoBehaviour
 {
@@ -29,7 +32,7 @@ public class buttonMashVisuals : MonoBehaviour
             winLevel = winLevel - Time.deltaTime*8;
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) 
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             winLevel = winLevel + 5;
         }
@@ -39,6 +42,7 @@ public class buttonMashVisuals : MonoBehaviour
             win = true;
             winLevel = 100;
             endPanel.SetActive(true);
+            SceneManager.LoadScene("Apartment");
         }
     }
 }

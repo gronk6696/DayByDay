@@ -52,39 +52,33 @@ public class introController2 : MonoBehaviour
         {
             EnableText7am();
             textOn7am = false;
-
         }
 
         if (textOn730am == true)
         {
             EnableText730am();
             textOn730am = false;
-
         }
 
         if (textOn8am == true)
         {
             EnableText8am();
             textOn8am = false;
-
         }
 
         if (text7am.enabled && (Time.time >= timeWhenDisappear))
         {
-            text7am.enabled = false;
-            
+            text7am.enabled = false;            
         }
 
         if (text730am.enabled && (Time.time >= timeWhenDisappear))
         {
             text730am.enabled = false;
-
         }
 
         if (text8am.enabled && (Time.time >= timeWhenDisappear))
         {
             text8am.enabled = false;
-
         }
 
         if (minigamePanel == true)
