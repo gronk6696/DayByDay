@@ -8,6 +8,9 @@ public class playerInteract : MonoBehaviour
     public TextMeshProUGUI uiPromptSpace;
     public GameObject buttonGamePanel;
 
+    private Animation staticAnimation;
+    public GameObject staticPanel;
+
     void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "interact")
@@ -31,6 +34,11 @@ public class playerInteract : MonoBehaviour
                 uiPromptSpace.enabled = false;
             }
         }
+        else if (col.gameObject.tag == "knife")
+        {
+            staticPanel.SetActive(true);
+            
+        }
         else
         {
           uiPromptSpace.enabled = false;
@@ -46,11 +54,16 @@ public class playerInteract : MonoBehaviour
         {
             uiPromptSpace.enabled = false;
         }
+        else if (col.gameObject.tag == "knife")
+        {
+            staticPanel.SetActive(false);
+        }
     }
 
     void Start()
     {
         uiPromptSpace.enabled = false;
         buttonGamePanel.SetActive(false);
+        staticPanel.SetActive(false);
     }
 }

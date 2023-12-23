@@ -7,7 +7,7 @@ public class TimeTracking : MonoBehaviour
 {
     public TMP_Text textTimer;
 
-    private float timer = 0.0f;
+    private float timer = 480.0f;
     private bool isTimer = false;
     
 
