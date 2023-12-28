@@ -1,0 +1,114 @@
+{
+    "name": "InputSystem",
+    "maps": [
+        {
+            "name": "Movement",
+            "id": "7d84acaf-7f10-4661-a8e1-7d291a99952b",
+            "actions": [
+                {
+                    "name": "moveForward",
+                    "type": "Value",
+                    "id": "7b8fa064-f094-4d0d-a3c1-08000040f14e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "moveBack",
+                    "type": "Value",
+                    "id": "0e8f30de-cb0f-44c5-9ac0-b2f378d954dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "turnLeft",
+                    "type": "Value",
+                    "id": "cca316b2-751d-4501-8666-781c1c6ebffe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "turnRight",
+                    "type": "Value",
+                    "id": "1d40ebe8-8a10-4b6e-b181-71b8ea4e98e5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "932db854-ea59-447a-8f01-e9c6e055b070",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "db6daf5d-773a-4382-8d35-d9393b06ed7a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "moveForward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46d72eca-f2a2-4c43-b34f-16f14fd92ae3",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "moveBack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd5bf3a0-76a2-4800-8638-da21eff53aea",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "turnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa1914be-644c-4447-ba70-ea38838e8e9e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "turnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcd6c501-bdb3-492c-9d05-ef5e90e3a0ad",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
