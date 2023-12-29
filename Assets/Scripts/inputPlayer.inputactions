@@ -1,5 +1,5 @@
 {
-    "name": "InputSystem",
+    "name": "inputPlayer",
     "maps": [
         {
             "name": "Movement",
@@ -46,6 +46,24 @@
                     "type": "Button",
                     "id": "932db854-ea59-447a-8f01-e9c6e055b070",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "lookX",
+                    "type": "PassThrough",
+                    "id": "1631644e-ca38-49ba-a6fe-7c78bd363868",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "lookY",
+                    "type": "PassThrough",
+                    "id": "7a45c5f8-da45-42b2-bf99-04ed5b1c276b",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -104,6 +122,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43ed0ae3-b21e-4c8d-b370-027932779a10",
+                    "path": "<Mouse>/delta/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "lookX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abc0e110-52cc-4412-956b-d4cb14e50368",
+                    "path": "<Mouse>/delta/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "lookY",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
