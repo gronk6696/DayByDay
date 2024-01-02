@@ -31,4 +31,23 @@ public class motivationSystem : MonoBehaviour
             currentMotivation += motivationIncreaser * Time.deltaTime;
         }
     }
+
+    public void startCountdown()
+    {
+        Countdown(20);
+    }
+
+
+
+    IEnumerator Countdown(int seconds)
+    {
+        int counter = seconds;
+        canIncrease = false;
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        canIncrease = true;
+    }
 }

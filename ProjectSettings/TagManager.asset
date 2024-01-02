@@ -7,6 +7,7 @@ TagManager:
   - interact
   - buttonGame
   - knife
+  - phone
   layers:
   - Default
   - TransparentFX

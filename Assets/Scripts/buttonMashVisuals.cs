@@ -14,6 +14,7 @@ public class buttonMashVisuals : MonoBehaviour
 
     public Slider visualSlider;
     public GameObject endPanel;
+    public bool goToApartment;
 
     public bool win;
     public float winLevel = 0;
@@ -42,6 +43,11 @@ public class buttonMashVisuals : MonoBehaviour
             win = true;
             winLevel = 100;
             endPanel.SetActive(true);
+            if(goToApartment == true)
+            {
+                SceneManager.LoadScene("Apartment");
+            }
+
             SceneManager.LoadScene("Apartment");
         }
     }
