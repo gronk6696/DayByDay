@@ -20,12 +20,12 @@ public class playerInteract : MonoBehaviour
         if (col.gameObject.tag == "interact")
         {
             uiPromptSpace.enabled = true;
-            Debug.Log("Near interactable");
+            //Debug.Log("Near interactable");
             if (Input.GetKey(KeyCode.Space))
             {
                 Destroy(col.gameObject);
                 uiPromptSpace.enabled = false;
-                Debug.Log("Interacted");
+                //Debug.Log("Interacted");
             }
         }
         else if (col.gameObject.tag == "buttonGame")

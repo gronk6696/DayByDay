@@ -5,12 +5,11 @@ using TMPro;
 
 public class TimeTracking : MonoBehaviour
 {
-    public TMP_Text textTimer;
+    public TMP_Text textTimer, promptBed;
 
-    private float timer = 480.0f;
+    private float timer = 1425.0f;
     private bool isTimer = false;
     
-
 
     // Update is called once per frame
     void Update()
@@ -21,9 +20,20 @@ public class TimeTracking : MonoBehaviour
 
     void DisplayTime()
     {
-        int minutes = Mathf.FloorToInt(timer/60.0f);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        textTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (timer <= 1440)
+        {
+            int minutes = Mathf.FloorToInt(timer / 60.0f);
+            int seconds = Mathf.FloorToInt(timer - minutes * 60);
+            textTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            promptBed.enabled = false;
+        }
+        else if (timer > 1440)
+        {
+            int minutes = Mathf.FloorToInt((timer - 1440) / 60.0f);
+            int seconds = Mathf.FloorToInt((timer - 1440) - minutes * 60);
+            textTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            promptBed.enabled = true;
+        }
     }
 
     public void StartTimer()
