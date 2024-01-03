@@ -8,6 +8,7 @@ public class playerInteract : MonoBehaviour
     public motivationSystem motivationSystem;
     public TextMeshProUGUI uiPromptSpace;
     public GameObject buttonGamePanel;
+    public GameObject timePanel;
 
     private Animation staticAnimation;
     public GameObject staticPanel;
@@ -44,9 +45,15 @@ public class playerInteract : MonoBehaviour
         }
         else if (col.gameObject.tag == "phone")
         {
-            phonePanel.SetActive(true);
-            motivationSystem.GetComponent<motivationSystem>().startCountdown();
-            phoneObject.SetActive(false); 
+            Debug.Log("working");
+            uiPromptSpace.enabled = true;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                phonePanel.SetActive(true);
+                motivationSystem.GetComponent<motivationSystem>().startCountdown();
+                phoneObject.SetActive(false);
+            }
+            
         }
         else
         {

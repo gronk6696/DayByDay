@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class motivationSystem : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class motivationSystem : MonoBehaviour
     public float motivationIncreaser = 0.1f;
     public bool canDecrease;
     public bool canIncrease;
+    public Slider motivationSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class motivationSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        motivationSlider.value = currentMotivation;
         if (canDecrease)
         {
             currentMotivation -= motivationDropper *Time.deltaTime;
