@@ -12,8 +12,15 @@ public class playerInteract : MonoBehaviour
 
     private Animation staticAnimation;
     public GameObject staticPanel;
+
     public GameObject phonePanel;
     public GameObject phoneObject;
+
+    public GameObject TVPanel;
+    public GameObject TVObject;
+
+    public GameObject laptopPanel;
+    public GameObject laptopObject;
 
     void OnTriggerStay(Collider col)
     {
@@ -53,7 +60,26 @@ public class playerInteract : MonoBehaviour
                 motivationSystem.GetComponent<motivationSystem>().startCountdown();
                 phoneObject.SetActive(false);
             }
-            
+        }
+        else if (col.gameObject.tag == "television")
+        {
+            uiPromptSpace.enabled = true;
+            if(Input.GetKey(KeyCode.Space))
+            {
+                TVPanel.SetActive(true);
+                motivationSystem.GetComponent<motivationSystem>().startCountdown();
+                TVObject.SetActive(false);
+            }
+        }
+        else if (col.gameObject.tag == "laptop")
+        {
+            uiPromptSpace.enabled = true;
+            if(Input.GetKey(KeyCode.Space))
+            {
+                laptopPanel.SetActive(true);
+                motivationSystem.GetComponent <motivationSystem>().startCountdown();
+                laptopObject.SetActive(false);
+            }
         }
         else
         {
@@ -62,19 +88,20 @@ public class playerInteract : MonoBehaviour
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "interact")
+        if (col.gameObject.tag == "buttonGame" || col.gameObject.tag == "interact" || col.gameObject.tag == "phone" || col.gameObject.tag == "television" || col.gameObject.tag == "laptop")
         {
             uiPromptSpace.enabled = false;
-        }
-        else if (col.gameObject.tag == "buttonGame")
-        {
-            uiPromptSpace.enabled = false;
+            phoneObject.SetActive(true);
+            TVObject.SetActive(true);
+            laptopObject.SetActive(true);
         }
         else if (col.gameObject.tag == "knife")
         {
             staticPanel.SetActive(false);
         }
     }
+        
+    
 
     void Start()
     {

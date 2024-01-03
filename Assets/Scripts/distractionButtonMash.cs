@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class distractionButtonMash : MonoBehaviour
 {
     public Slider distractionSlider;
+    public GameObject distractionPanel;
 
     public bool win;
     public float winLevel;
@@ -34,6 +35,7 @@ public class distractionButtonMash : MonoBehaviour
         {
             win = true;
             winLevel = 100;
+            distractionPanel.SetActive(false);
 
         }
     }

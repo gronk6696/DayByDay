@@ -8,6 +8,8 @@ TagManager:
   - buttonGame
   - knife
   - phone
+  - television
+  - laptop
   layers:
   - Default
   - TransparentFX
