@@ -10,6 +10,7 @@ TagManager:
   - phone
   - television
   - laptop
+  - sortGame
   layers:
   - Default
   - TransparentFX

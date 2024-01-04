@@ -78,6 +78,15 @@ public class playerInteract : MonoBehaviour
                 motivationSystem.GetComponent <motivationSystem>().startCountdown();
             }
         }
+        else if (col.gameObject.tag == "sortGame")
+        {
+            uiPromptSpace.enabled = true;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                uiPromptSpace.enabled = false;
+                //need 2 hook stuff in to tp player to the game
+            }
+        }
         else
         {
           uiPromptSpace.enabled = false;
