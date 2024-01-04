@@ -8,13 +8,14 @@ public class gameSort : MonoBehaviour
     public GameObject shuteSpawn, shuteBlue, shuteRed;
 
     public float spawnInterval = 2f;
-
+    //amount of balls dropped each time you play the minigame
     public int balls = 4;
     int ballsLeft;
 
     void Start()
     {
-        // InvokeRepeating(methodName, timeDelay, repeatRate)
+        ballsLeft = balls;
+
         if (ballsLeft <= balls)
         {
             InvokeRepeating("SpawnBall", 0.0f, spawnInterval);
@@ -23,6 +24,10 @@ public class gameSort : MonoBehaviour
         {
             ScoreLogic();
         }
+    }
+
+    void Update()
+    {
 
     }
 
@@ -32,13 +37,6 @@ public class gameSort : MonoBehaviour
         Instantiate(ballBlue, shuteSpawn.transform.position, shuteSpawn.transform.rotation);
         ballsLeft -= 1;
     }
-
-    void Update()
-    {
-
-    }
-
-
 
     private void ScoreLogic()
     {
