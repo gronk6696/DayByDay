@@ -9,12 +9,19 @@ public class distractionButtonMash : MonoBehaviour
 {
     public Slider distractionSlider;
     public GameObject distractionPanel;
+    public GameObject timePanel;
+
+    public GameObject distractionObject;
+
 
     public bool win;
     public float winLevel;
     void Start()
     {
-        
+        winLevel = 0;
+        win = false;
+        distractionObject.SetActive(false);
+        timePanel.SetActive(false);
     }
 
     
@@ -34,9 +41,17 @@ public class distractionButtonMash : MonoBehaviour
         if (winLevel > 99)
         {
             win = true;
-            winLevel = 100;
-            distractionPanel.SetActive(false);
+            
+        }
 
+        if (win == true)
+        {
+
+            distractionPanel.SetActive(false);
+            timePanel.SetActive(true);
+            distractionObject.SetActive(true);
+            winLevel = 0;
+            win = false;
         }
     }
 }

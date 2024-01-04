@@ -14,13 +14,8 @@ public class playerInteract : MonoBehaviour
     public GameObject staticPanel;
 
     public GameObject phonePanel;
-    public GameObject phoneObject;
-
     public GameObject TVPanel;
-    public GameObject TVObject;
-
     public GameObject laptopPanel;
-    public GameObject laptopObject;
 
     void OnTriggerStay(Collider col)
     {
@@ -30,6 +25,7 @@ public class playerInteract : MonoBehaviour
             //Debug.Log("Near interactable");
             if (Input.GetKey(KeyCode.Space))
             {
+
                 Destroy(col.gameObject);
                 uiPromptSpace.enabled = false;
                 //Debug.Log("Interacted");
@@ -41,6 +37,7 @@ public class playerInteract : MonoBehaviour
             Debug.Log("Near interactable");
             if (Input.GetKey(KeyCode.Space))
             {
+                uiPromptSpace.enabled = false;
                 buttonGamePanel.SetActive(true);
                 uiPromptSpace.enabled = false;
             }
@@ -56,9 +53,9 @@ public class playerInteract : MonoBehaviour
             uiPromptSpace.enabled = true;
             if (Input.GetKey(KeyCode.Space))
             {
+                uiPromptSpace.enabled = false;
                 phonePanel.SetActive(true);
                 motivationSystem.GetComponent<motivationSystem>().startCountdown();
-                phoneObject.SetActive(false);
             }
         }
         else if (col.gameObject.tag == "television")
@@ -66,9 +63,9 @@ public class playerInteract : MonoBehaviour
             uiPromptSpace.enabled = true;
             if(Input.GetKey(KeyCode.Space))
             {
+                uiPromptSpace.enabled = false;
                 TVPanel.SetActive(true);
                 motivationSystem.GetComponent<motivationSystem>().startCountdown();
-                TVObject.SetActive(false);
             }
         }
         else if (col.gameObject.tag == "laptop")
@@ -76,9 +73,9 @@ public class playerInteract : MonoBehaviour
             uiPromptSpace.enabled = true;
             if(Input.GetKey(KeyCode.Space))
             {
+                uiPromptSpace.enabled = false;
                 laptopPanel.SetActive(true);
                 motivationSystem.GetComponent <motivationSystem>().startCountdown();
-                laptopObject.SetActive(false);
             }
         }
         else
@@ -91,9 +88,6 @@ public class playerInteract : MonoBehaviour
         if (col.gameObject.tag == "buttonGame" || col.gameObject.tag == "interact" || col.gameObject.tag == "phone" || col.gameObject.tag == "television" || col.gameObject.tag == "laptop")
         {
             uiPromptSpace.enabled = false;
-            phoneObject.SetActive(true);
-            TVObject.SetActive(true);
-            laptopObject.SetActive(true);
         }
         else if (col.gameObject.tag == "knife")
         {
@@ -114,9 +108,9 @@ public class playerInteract : MonoBehaviour
 
     private void Update()
     {
-        if (phonePanel.activeInHierarchy == true)
+        if (phonePanel.activeInHierarchy == true || laptopPanel.activeInHierarchy == true || TVPanel.activeInHierarchy == true)
         {
-
+            //somehow have WASD turn off
         }
     }
 }
