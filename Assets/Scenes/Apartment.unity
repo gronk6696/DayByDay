@@ -4450,6 +4450,7 @@ GameObject:
   - component: {fileID: 881535942}
   - component: {fileID: 881535941}
   - component: {fileID: 881535940}
+  - component: {fileID: 881535947}
   m_Layer: 0
   m_Name: zoneBlue
   m_TagString: Untagged
@@ -4627,6 +4628,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881535938}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &881535947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881535938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084173c3955ddbc4892d1e93ab69c36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreSort: 0
 --- !u!1 &889106708
 GameObject:
   m_ObjectHideFlags: 0
@@ -6449,6 +6463,7 @@ GameObject:
   - component: {fileID: 1256075691}
   - component: {fileID: 1256075690}
   - component: {fileID: 1256075689}
+  - component: {fileID: 1256075696}
   m_Layer: 0
   m_Name: zoneRed
   m_TagString: Untagged
@@ -6626,6 +6641,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256075687}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1256075696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256075687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295a9087c0dc9fd40a41f83b7ea6601b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreSort: 0
 --- !u!1 &1263441734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7903,7 +7931,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 62
   m_CollisionDetection: 0
@@ -7920,7 +7948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1456840131}
-  speedRotate: 10
+  speedRotate: 50
 --- !u!1 &1467026741
 GameObject:
   m_ObjectHideFlags: 0
@@ -7977,6 +8005,7 @@ MonoBehaviour:
   shuteSpawn: {fileID: 18986197}
   shuteBlue: {fileID: 881535938}
   shuteRed: {fileID: 1256075687}
+  spawnInterval: 2
   balls: 3
 --- !u!1 &1480215824
 GameObject:

@@ -11,6 +11,8 @@ TagManager:
   - television
   - laptop
   - sortGame
+  - ballBlue
+  - ballRed
   layers:
   - Default
   - TransparentFX

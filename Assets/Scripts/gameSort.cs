@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class gameSort : MonoBehaviour
 {
@@ -16,14 +19,19 @@ public class gameSort : MonoBehaviour
     {
         ballsLeft = balls;
 
-        if (ballsLeft <= balls)
+        StartCoroutine(SpawnBalls());
+    }
+
+    IEnumerator SpawnBalls()
+    {
+        for (int i = 0; i < balls; i++)
         {
-            InvokeRepeating("SpawnBall", 0.0f, spawnInterval);
+            SpawnBall();
+            yield return new WaitForSeconds(spawnInterval);
         }
-        else if (ballsLeft == 0)
-        {
-            ScoreLogic();
-        }
+
+        // end of minigame
+        ScoreLogic();
     }
 
     void Update()
@@ -33,8 +41,17 @@ public class gameSort : MonoBehaviour
 
     void SpawnBall()
     {
-        // Instantiate the object at the spawner's position and rotation
-        Instantiate(ballBlue, shuteSpawn.transform.position, shuteSpawn.transform.rotation);
+        float randomValue = Random.Range(0f, 1f);
+
+        if (randomValue < 0.5f)
+        {
+            Instantiate(ballRed, shuteSpawn.transform.position, shuteSpawn.transform.rotation);
+        }
+        else
+        {
+            Instantiate(ballBlue, shuteSpawn.transform.position, shuteSpawn.transform.rotation);
+        }
+
         ballsLeft -= 1;
     }
 
