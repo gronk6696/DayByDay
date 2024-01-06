@@ -5,17 +5,18 @@ using UnityEngine;
 public class gameSortRed : MonoBehaviour
 {
     public int scoreSort;
+    public gameSort gameSortScr;
 
     void Start()
     {
-
+        //gameSortScr = GetComponent<gameSort>();
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "ballRed")
         {
-            scoreSort++;
+            gameSortScr.getPoint();
             Destroy(col.gameObject);
         }
         else if (col.gameObject.tag == "ballBlue")

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Runtime.InteropServices;
 
 public class playerInteract : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class playerInteract : MonoBehaviour
     public GameObject phonePanel;
     public GameObject TVPanel;
     public GameObject laptopPanel;
+
+    public Camera sortGameCamera;
+    public Camera mainCamera;
+    public gameSort gameScoreStart;
 
     void OnTriggerStay(Collider col)
     {
@@ -83,8 +88,12 @@ public class playerInteract : MonoBehaviour
             uiPromptSpace.enabled = true;
             if (Input.GetKey(KeyCode.Space))
             {
+                Debug.Log("working");
                 uiPromptSpace.enabled = false;
-                //need 2 hook stuff in to tp player to the game
+                //gameScoreStart.startGame();
+                sortGameCamera.enabled = true;
+                mainCamera.enabled = false;
+                gameScoreStart.startGame();
             }
         }
         else
@@ -94,7 +103,7 @@ public class playerInteract : MonoBehaviour
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "buttonGame" || col.gameObject.tag == "interact" || col.gameObject.tag == "phone" || col.gameObject.tag == "television" || col.gameObject.tag == "laptop")
+        if (col.gameObject.tag == "buttonGame" || col.gameObject.tag == "interact" || col.gameObject.tag == "phone" || col.gameObject.tag == "television" || col.gameObject.tag == "laptop" || col.gameObject.tag == "sortGame")
         {
             uiPromptSpace.enabled = false;
         }
@@ -112,6 +121,9 @@ public class playerInteract : MonoBehaviour
         buttonGamePanel.SetActive(false);
         staticPanel.SetActive(false);
         phonePanel.SetActive(false);
+        TVPanel.SetActive(false);
+        laptopPanel.SetActive(false);
+        sortGameCamera.enabled = false;
         
     }
 

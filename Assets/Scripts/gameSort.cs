@@ -13,18 +13,25 @@ public class gameSort : MonoBehaviour
     public float spawnInterval = 2f;
     //amount of balls dropped each time you play the minigame
     public int balls = 4;
+    public int pointsScored;
+    public int maxPoints = 5;
+
+    public Camera minigameCamera;
+    public Camera mainCamera;
+    public bool gamePlay;
+
     int ballsLeft;
 
     void Start()
     {
-        ballsLeft = balls;
+        //ballsLeft = balls;
 
-        StartCoroutine(SpawnBalls());
+        
     }
 
     IEnumerator SpawnBalls()
     {
-        for (int i = 0; i < balls; i++)
+        for (int i = 0; i < maxPoints; i++)
         {
             SpawnBall();
             yield return new WaitForSeconds(spawnInterval);
@@ -34,9 +41,26 @@ public class gameSort : MonoBehaviour
         ScoreLogic();
     }
 
+    public void getPoint()
+    {
+        pointsScored++;
+    }
+
+    public void startGame()
+    {
+        Debug.Log("works");
+        pointsScored = 0;
+        StartCoroutine(SpawnBalls());
+    }
+
+
     void Update()
     {
-
+        if(maxPoints <= pointsScored)
+        {
+            minigameCamera.enabled = false;
+            mainCamera.enabled = true;
+        }
     }
 
     void SpawnBall()
@@ -52,7 +76,7 @@ public class gameSort : MonoBehaviour
             Instantiate(ballBlue, shuteSpawn.transform.position, shuteSpawn.transform.rotation);
         }
 
-        ballsLeft -= 1;
+        //ballsLeft -= 1;
     }
 
     private void ScoreLogic()

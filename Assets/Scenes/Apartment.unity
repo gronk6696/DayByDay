@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.57660145, g: 0.4243933, b: 0.31970528, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4641,6 +4641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreSort: 0
+  gameSortScr: {fileID: 0}
 --- !u!1 &889106708
 GameObject:
   m_ObjectHideFlags: 0
@@ -6654,6 +6655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreSort: 0
+  gameSortScr: {fileID: 1467026743}
 --- !u!1 &1263441734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7414,7 +7416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1375302478
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8007,6 +8009,11 @@ MonoBehaviour:
   shuteRed: {fileID: 1256075687}
   spawnInterval: 2
   balls: 3
+  pointsScored: 0
+  maxPoints: 0
+  minigameCamera: {fileID: 2032764479}
+  mainCamera: {fileID: 1375302479}
+  gamePlay: 0
 --- !u!1 &1480215824
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,6 +10008,9 @@ MonoBehaviour:
   phonePanel: {fileID: 1361763186}
   TVPanel: {fileID: 2091412592}
   laptopPanel: {fileID: 1586720430}
+  sortGameCamera: {fileID: 2032764479}
+  mainCamera: {fileID: 1375302479}
+  gameScoreStart: {fileID: 1467026743}
 --- !u!136 &1832721170
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11372,7 +11382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2032764477}
   - component: {fileID: 2032764479}
-  - component: {fileID: 2032764478}
   m_Layer: 0
   m_Name: Test Camera
   m_TagString: MainCamera
@@ -11395,14 +11404,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1467026742}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!81 &2032764478
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032764476}
-  m_Enabled: 1
 --- !u!20 &2032764479
 Camera:
   m_ObjectHideFlags: 0
