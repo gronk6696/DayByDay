@@ -30,7 +30,7 @@ public class buttonGame : MonoBehaviour
         {
             shuffledButtons[i - 1].GetComponentInChildren<TMP_Text>().text = i.ToString();
             shuffledButtons[i-1].interactable = true;
-            shuffledButtons[i - 1].image.color = new Color32(30, 30, 67, 255);
+            shuffledButtons[i - 1].image.color = new Color32(51, 82, 78, 255);
         }
     }
 
@@ -40,7 +40,7 @@ public class buttonGame : MonoBehaviour
         {
             counter++;
             button.interactable = false;
-            button.image.color = new Color32(10,40,10,255);
+            button.image.color = new Color32(112, 66, 101, 255);
             if (counter == 10)
             {
                 StartCoroutine(presentResult(true));
@@ -59,7 +59,7 @@ public class buttonGame : MonoBehaviour
         {
             foreach(var button in shuffledButtons)
             {
-                button.image.color = new Color32 (30,10,10,255);
+                button.image.color = new Color32 (107, 41, 41,255);
                 button.interactable = false;
             }
         }

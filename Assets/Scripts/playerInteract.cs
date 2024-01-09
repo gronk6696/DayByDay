@@ -27,19 +27,15 @@ public class playerInteract : MonoBehaviour
         if (col.gameObject.tag == "interact")
         {
             uiPromptSpace.enabled = true;
-            //Debug.Log("Near interactable");
             if (Input.GetKey(KeyCode.Space))
             {
-
                 Destroy(col.gameObject);
                 uiPromptSpace.enabled = false;
-                //Debug.Log("Interacted");
             }
         }
         else if (col.gameObject.tag == "buttonGame")
         {
             uiPromptSpace.enabled = true;
-            Debug.Log("Near interactable");
             if (Input.GetKey(KeyCode.Space))
             {
                 uiPromptSpace.enabled = false;
@@ -50,11 +46,10 @@ public class playerInteract : MonoBehaviour
         else if (col.gameObject.tag == "knife")
         {
             staticPanel.SetActive(true);
-            
+
         }
         else if (col.gameObject.tag == "phone")
         {
-            Debug.Log("working");
             uiPromptSpace.enabled = true;
             if (Input.GetKey(KeyCode.Space))
             {
@@ -66,7 +61,7 @@ public class playerInteract : MonoBehaviour
         else if (col.gameObject.tag == "television")
         {
             uiPromptSpace.enabled = true;
-            if(Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 uiPromptSpace.enabled = false;
                 TVPanel.SetActive(true);
@@ -76,11 +71,11 @@ public class playerInteract : MonoBehaviour
         else if (col.gameObject.tag == "laptop")
         {
             uiPromptSpace.enabled = true;
-            if(Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 uiPromptSpace.enabled = false;
                 laptopPanel.SetActive(true);
-                motivationSystem.GetComponent <motivationSystem>().startCountdown();
+                motivationSystem.GetComponent<motivationSystem>().startCountdown();
             }
         }
         else if (col.gameObject.tag == "sortGame")
@@ -88,13 +83,17 @@ public class playerInteract : MonoBehaviour
             uiPromptSpace.enabled = true;
             if (Input.GetKey(KeyCode.Space))
             {
-                Debug.Log("working");
                 uiPromptSpace.enabled = false;
                 //gameScoreStart.startGame();
                 sortGameCamera.enabled = true;
                 mainCamera.enabled = false;
                 gameScoreStart.startGame();
             }
+        }
+
+        else if (col.gameObject.tag == "door")
+        {
+
         }
         else
         {

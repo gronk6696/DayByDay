@@ -50,7 +50,7 @@ public class gameSort : MonoBehaviour
     {
         Debug.Log("works");
         pointsScored = 0;
-        StartCoroutine(SpawnBalls());
+        SpawnBalls();
     }
 
 
