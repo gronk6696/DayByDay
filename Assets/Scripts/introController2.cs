@@ -7,18 +7,40 @@ using UnityEngine.SceneManagement;
 
 public class introController2 : MonoBehaviour
 {
-    public TextMeshProUGUI text7am; 
-    public TextMeshProUGUI text730am;
-    public TextMeshProUGUI text8am;
-    public GameObject minigameObject;
-    private float timeToAppear = 3.5f;
+    public TMP_Text timeText, getUpText,promptSpaceText;
+    public GameObject slider;
+    private float timeToAppear = 4f;
     private float timeWhenDisappear;
     public AudioSource alarmNoise;
-    public bool textOn7am;
-    public bool textOn730am;
-    public bool textOn8am;
-    public bool minigamePanel;
 
+    private void Start()
+    {
+        promptSpaceText.enabled = false;
+        timeText.enabled = true;
+        slider.SetActive(false);
+        getUpText.enabled = false;
+        StartCoroutine(introSequence());
+    }
+
+    IEnumerator introSequence()
+    {
+        timeText.text = "7:00";
+        alarmNoise.Play();
+        yield return new WaitForSeconds(timeToAppear);
+        timeText.text = "7:30";
+        alarmNoise.Play();
+        yield return new WaitForSeconds(timeToAppear);
+        timeText.text = "8:00";
+        alarmNoise.Play();
+        yield return new WaitForSeconds(timeToAppear);
+        timeText.enabled = false;
+        slider.SetActive(true);
+        getUpText.enabled=true;
+        promptSpaceText.enabled = true;
+    }
+
+
+    /*
     public void Start()
     {
         minigameObject.SetActive(false);
@@ -85,5 +107,5 @@ public class introController2 : MonoBehaviour
         {
             minigameObject.SetActive(true);
         }
-    }
+    }*/
 }

@@ -39,7 +39,7 @@ public class motivationSystem : MonoBehaviour
 
     public void startCountdown()
     {
-        Countdown(20);
+        StartCoroutine(Countdown(20));
     }
 
 

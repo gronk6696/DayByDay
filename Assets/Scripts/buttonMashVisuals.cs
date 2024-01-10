@@ -11,10 +11,10 @@ using System.Linq;
 
 public class buttonMashVisuals : MonoBehaviour
 {
-
+    public TMP_Text getUpText;
     public Slider visualSlider;
-    public GameObject endPanel;
     public bool goToApartment;
+    public GameObject doBetterPanel;
 
     public bool win;
     public float winLevel = 0;
@@ -22,7 +22,7 @@ public class buttonMashVisuals : MonoBehaviour
     void Start()
     {
         visualSlider = GetComponent<Slider>();
-        endPanel.SetActive(false);
+        doBetterPanel.SetActive(false);
     }
 
     void Update()
@@ -42,13 +42,15 @@ public class buttonMashVisuals : MonoBehaviour
         {
             win = true;
             winLevel = 100;
-            endPanel.SetActive(true);
-            if(goToApartment == true)
-            {
-                SceneManager.LoadScene("Apartment");
-            }
-
-            SceneManager.LoadScene("Apartment");
+            StartCoroutine(winGame());
         }
+    }
+
+    IEnumerator winGame()
+    {
+        getUpText.enabled = false;
+        doBetterPanel.SetActive (true);
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("Apartment");
     }
 }

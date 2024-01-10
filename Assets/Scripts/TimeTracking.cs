@@ -15,6 +15,7 @@ public class TimeTracking : MonoBehaviour
     public GameObject spacePrompt;
 
     public bool morning;
+    public bool exitAble;
     public GameObject timeSkipAnim;
 
     public GameObject playerCharacter;
@@ -32,7 +33,8 @@ public class TimeTracking : MonoBehaviour
         randomLocations.Add("work");
 
         SelectRandomWord();
-        timer = 530.0f;
+        timer = 420.0f;
+        //timer = 530.0f;
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class TimeTracking : MonoBehaviour
        
         if (timer >= 540 && morning == true)
         {
+            exitAble = true;
             promptBed.enabled = true;
             spacePrompt.SetActive(false);
             promptBed.text = "go to " + location + ".";
@@ -80,6 +83,7 @@ public class TimeTracking : MonoBehaviour
 
     IEnumerator timeChange()
     {
+        exitAble = false;
         Debug.Log("Changed");
         promptBed.enabled = false;
         timeSkipAnim.SetActive(true);

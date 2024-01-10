@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class distractionButtonMash : MonoBehaviour
 {
@@ -46,12 +47,19 @@ public class distractionButtonMash : MonoBehaviour
 
         if (win == true)
         {
-
             distractionPanel.SetActive(false);
             timePanel.SetActive(true);
-            distractionObject.SetActive(true);
             winLevel = 0;
             win = false;
+            //StartCoroutine(winLogic());
         }
+
+    }
+
+    IEnumerator winLogic()
+    {
+        yield return new WaitForSeconds(2.0f);
+        distractionObject.SetActive(true);
+
     }
 }
