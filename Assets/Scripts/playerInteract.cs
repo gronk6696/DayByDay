@@ -22,6 +22,8 @@ public class playerInteract : MonoBehaviour
     public Camera mainCamera;
     public gameSort gameScoreStart;
 
+    public bool canLeave;
+
     void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "interact")
@@ -91,7 +93,7 @@ public class playerInteract : MonoBehaviour
             }
         }
 
-        else if (col.gameObject.tag == "door")
+        else if (col.gameObject.tag == "door" && canLeave)
         {
 
         }
