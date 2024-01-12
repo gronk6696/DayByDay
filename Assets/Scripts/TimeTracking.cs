@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TimeTracking : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class TimeTracking : MonoBehaviour
 
     public bool morning;
     public bool exitAble;
+    public bool bedAble;
     public GameObject timeSkipAnim;
+    public GameObject bedTimeSkipAnim;
 
     public GameObject playerCharacter;
     
@@ -25,6 +28,7 @@ public class TimeTracking : MonoBehaviour
     private void Start()
     {
         timeSkipAnim.SetActive(false);
+        bedTimeSkipAnim.SetActive(false);
         doTime = true; 
         promptBed.enabled = false;
         morning = true;
@@ -63,6 +67,13 @@ public class TimeTracking : MonoBehaviour
         {
             promptBed.enabled = true;
             promptBed.text = "go to bed";
+            bedAble = true;
+            spacePrompt.SetActive(false);
+            if(timer >= 1340)//add in here or bed interact is true
+            {
+                StartCoroutine(gameFinish());
+            }
+
         }
     }
 
@@ -96,6 +107,13 @@ public class TimeTracking : MonoBehaviour
         playerCharacter.transform.position = new Vector3(0, 1, 4.79f);
         doTime = true;
         
+    }
+
+    IEnumerator gameFinish()
+    {
+        bedTimeSkipAnim.SetActive(true );
+        yield return new WaitForSeconds(6.0f);
+        SceneManager.LoadScene("Demo");
     }
 
 

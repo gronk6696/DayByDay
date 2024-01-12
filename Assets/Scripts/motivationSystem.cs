@@ -9,8 +9,8 @@ public class motivationSystem : MonoBehaviour
 {
 
     public float currentMotivation = 200f;
-    public float motivationDropper = 0.5f;
-    public float motivationIncreaser = 0.1f;
+    public float motivationDropper = 5f;
+    public float motivationIncreaser = 1f;
     public bool canDecrease;
     public bool canIncrease;
     public Slider motivationSlider;

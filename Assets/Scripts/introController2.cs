@@ -24,13 +24,13 @@ public class introController2 : MonoBehaviour
 
     IEnumerator introSequence()
     {
+        timeText.text = "6:00";
+        alarmNoise.Play();
+        yield return new WaitForSeconds(timeToAppear);
+        timeText.text = "6:30";
+        alarmNoise.Play();
+        yield return new WaitForSeconds(timeToAppear);
         timeText.text = "7:00";
-        alarmNoise.Play();
-        yield return new WaitForSeconds(timeToAppear);
-        timeText.text = "7:30";
-        alarmNoise.Play();
-        yield return new WaitForSeconds(timeToAppear);
-        timeText.text = "8:00";
         alarmNoise.Play();
         yield return new WaitForSeconds(timeToAppear);
         timeText.enabled = false;
