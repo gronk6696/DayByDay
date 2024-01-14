@@ -9,6 +9,7 @@ using TMPro;
 
 public class buttonGame : MonoBehaviour
 {
+    public GameObject physicalObject;
     public GameObject gamePanel;
     public List <Button> buttons;
     public List<Button> shuffledButtons;
@@ -66,6 +67,8 @@ public class buttonGame : MonoBehaviour
 
         else if (win)
         {
+            //physicalObject.GetComponent<SphereCollider>.enabled = false;
+            //not sure why this wont work but ill do some research
             gamePanel.SetActive(false);
         }
         yield return new WaitForSeconds(2f);

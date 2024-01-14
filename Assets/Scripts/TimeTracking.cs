@@ -18,10 +18,25 @@ public class TimeTracking : MonoBehaviour
     public bool morning;
     public bool exitAble;
     public bool bedAble;
+    public bool hasExited;
+    public bool hasBeded;
     public GameObject timeSkipAnim;
     public GameObject bedTimeSkipAnim;
 
     public GameObject playerCharacter;
+    public playerInteract playerInteractScript;
+
+    //game objects for each chore
+    public GameObject microwave;
+    public GameObject bathroomSink;
+    public GameObject shower;
+    public GameObject toilet;
+    public GameObject trash1;
+    public GameObject trash2;
+    public GameObject dishes1;
+    public GameObject dishes2;
+    public GameObject dust1;
+    public GameObject dust2;
     
 
 
@@ -38,7 +53,7 @@ public class TimeTracking : MonoBehaviour
 
         SelectRandomWord();
         timer = 420.0f;
-        //timer = 530.0f;
+        timer = 530.0f;
     }
 
     void Update()
@@ -51,11 +66,12 @@ public class TimeTracking : MonoBehaviour
        
         if (timer >= 540 && morning == true)
         {
+            playerInteractScript.canLeave = true;
             exitAble = true;
             promptBed.enabled = true;
             spacePrompt.SetActive(false);
             promptBed.text = "go to " + location + ".";
-            if (timer >= 560)//ADD IN HERE OR THE DOOR INTERACT IS TRUE
+            if (timer >= 560 || hasExited == true)//ADD IN HERE OR THE DOOR INTERACT IS TRUE
             {
                 Debug.Log("change");
                 StartCoroutine(timeChange());
@@ -65,11 +81,12 @@ public class TimeTracking : MonoBehaviour
 
         if (timer >= 1320)
         {
+            playerInteractScript.canBed = true;
             promptBed.enabled = true;
             promptBed.text = "go to bed";
             bedAble = true;
             spacePrompt.SetActive(false);
-            if(timer >= 1340)//add in here or bed interact is true
+            if(timer >= 1340 || hasBeded == true)//add in here or bed interact is true
             {
                 StartCoroutine(gameFinish());
             }
@@ -101,17 +118,20 @@ public class TimeTracking : MonoBehaviour
         morning = false;
         timer = 1200.0f;
         doTime = false;
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(10.0f);
         timeSkipAnim.SetActive(false);
         //TURN ON EVENING OBJECTS
         playerCharacter.transform.position = new Vector3(0, 1, 4.79f);
         doTime = true;
-        
+        dust2.SetActive(true);
+        dishes2.SetActive(true);
+        trash2.SetActive(true);
+        //somehow turn back on the colliders for the objects. potentially easier to literally just have the object turn off and a new replacement one spawn temp
     }
 
     IEnumerator gameFinish()
     {
-        bedTimeSkipAnim.SetActive(true );
+        bedTimeSkipAnim.SetActive(true);
         yield return new WaitForSeconds(6.0f);
         SceneManager.LoadScene("Demo");
     }

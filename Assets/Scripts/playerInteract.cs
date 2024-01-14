@@ -22,7 +22,10 @@ public class playerInteract : MonoBehaviour
     public Camera mainCamera;
     public gameSort gameScoreStart;
 
+
+    public TimeTracking timeTrackScript;
     public bool canLeave;
+    public bool canBed;
 
     void OnTriggerStay(Collider col)
     {
@@ -95,7 +98,11 @@ public class playerInteract : MonoBehaviour
 
         else if (col.gameObject.tag == "door" && canLeave)
         {
-
+            timeTrackScript.hasExited = true;
+        }
+        else if (col.gameObject.tag == "bed" && canBed)
+        {
+            timeTrackScript.hasBeded = true;
         }
         else
         {
