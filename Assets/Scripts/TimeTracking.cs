@@ -27,17 +27,21 @@ public class TimeTracking : MonoBehaviour
     public playerInteract playerInteractScript;
 
     //game objects for each chore
-    public GameObject microwave;
-    public GameObject bathroomSink;
-    public GameObject shower;
-    public GameObject toilet;
-    public GameObject trash1;
-    public GameObject trash2;
-    public GameObject dishes1;
-    public GameObject dishes2;
-    public GameObject dust1;
-    public GameObject dust2;
-    
+    public GameObject microwaveAM;
+    public GameObject bathroomSinkAM;
+    public GameObject showerAM;
+    public GameObject toiletAM;
+    public GameObject trashAM;
+    public GameObject dishesAM;
+    public GameObject dustAM;
+
+    public GameObject microwavePM;
+    public GameObject bathroomSinkPM;
+    public GameObject showerPM;
+    public GameObject toiletPM;
+    public GameObject trashPM;
+    public GameObject dishesPM;
+    public GameObject dustPM;
 
 
     private void Start()
@@ -53,7 +57,7 @@ public class TimeTracking : MonoBehaviour
 
         SelectRandomWord();
         timer = 420.0f;
-        timer = 530.0f;
+        //timer = 530.0f;
     }
 
     void Update()
@@ -122,10 +126,20 @@ public class TimeTracking : MonoBehaviour
         timeSkipAnim.SetActive(false);
         //TURN ON EVENING OBJECTS
         playerCharacter.transform.position = new Vector3(0, 1, 4.79f);
+
+        microwaveAM.SetActive(false);
+        bathroomSinkAM.SetActive(false);
+        toiletAM.SetActive(false);
+        showerAM.SetActive(false);
+
         doTime = true;
-        dust2.SetActive(true);
-        dishes2.SetActive(true);
-        trash2.SetActive(true);
+        microwavePM.SetActive(true);
+        bathroomSinkPM.SetActive(true);
+        toiletPM.SetActive(true);
+        showerPM.SetActive(true);
+        trashPM.SetActive(true);
+        dishesPM.SetActive(true);
+        dustPM.SetActive(true);
         //somehow turn back on the colliders for the objects. potentially easier to literally just have the object turn off and a new replacement one spawn temp
     }
 
