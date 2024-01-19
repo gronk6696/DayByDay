@@ -23,6 +23,24 @@ public class playerInteract : MonoBehaviour
     public gameSort gameScoreStart;
 
 
+    public GameObject showerPanelAM;
+    public GameObject sinkPanelAM;
+    public GameObject microwavePanelAM;
+    public GameObject toiletPanelAM;
+    public GameObject dustPanelAM;
+    public GameObject dishesPanelAM;
+    public GameObject rubbishPanelAM;
+
+    public GameObject showerPanelPM;
+    public GameObject sinkPanelPM;
+    public GameObject microwavePanelPM;
+    public GameObject toiletPanelPM;
+    public GameObject dustPanelPM;
+    public GameObject dishesPanelPM;
+    public GameObject rubbishPanelPM;
+
+
+
     public TimeTracking timeTrackScript;
     public bool canLeave;
     public bool canBed;
@@ -38,6 +56,12 @@ public class playerInteract : MonoBehaviour
                 uiPromptSpace.enabled = false;
             }
         }
+
+        if (col.gameObject.name == "showerAM")
+        {
+
+        }
+
         else if (col.gameObject.tag == "buttonGame")
         {
             uiPromptSpace.enabled = true;

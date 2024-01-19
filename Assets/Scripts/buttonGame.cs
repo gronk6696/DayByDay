@@ -67,8 +67,7 @@ public class buttonGame : MonoBehaviour
 
         else if (win)
         {
-            //physicalObject.GetComponent<SphereCollider>.enabled = false;
-            //not sure why this wont work but ill do some research
+            physicalObject.SetActive(false);
             gamePanel.SetActive(false);
         }
         yield return new WaitForSeconds(2f);

@@ -58,6 +58,14 @@ public class TimeTracking : MonoBehaviour
         SelectRandomWord();
         timer = 420.0f;
         //timer = 530.0f;
+
+        microwavePM.SetActive(false);
+        bathroomSinkPM.SetActive(false);
+        showerPM.SetActive(false);
+        toiletPM.SetActive(false);
+        trashPM.SetActive(false);
+        dishesPM.SetActive(false);
+        dustAM.SetActive(false);
     }
 
     void Update()
@@ -140,7 +148,7 @@ public class TimeTracking : MonoBehaviour
         trashPM.SetActive(true);
         dishesPM.SetActive(true);
         dustPM.SetActive(true);
-        //somehow turn back on the colliders for the objects. potentially easier to literally just have the object turn off and a new replacement one spawn temp
+
     }
 
     IEnumerator gameFinish()
