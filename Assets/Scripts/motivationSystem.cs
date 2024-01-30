@@ -9,8 +9,8 @@ using Unity.VisualScripting;
 public class motivationSystem : MonoBehaviour
 {
 
-    public float currentMotivation = 200f;
-    public float motivationDropper = 1f;
+    public float currentMotivation = 250Sf;
+    public float motivationDropper = 2f;
     public float motivationIncreaser = 1f;
     public bool canDecrease;
     public bool canIncrease;
