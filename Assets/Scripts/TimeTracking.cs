@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class TimeTracking : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class TimeTracking : MonoBehaviour
     public GameObject trashPM;
     public GameObject dishesPM;
     public GameObject dustPM;
+
+    public Material skybox;
+    public Material skybox2;
 
 
     private void Start()
@@ -103,6 +107,12 @@ public class TimeTracking : MonoBehaviour
                 StartCoroutine(gameFinish());
             }
 
+           if(morning == false)
+            {
+                RenderSettings.skybox = skybox2;
+
+            }
+            
         }
     }
 

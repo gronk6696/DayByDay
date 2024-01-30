@@ -14,6 +14,10 @@ public class motivationSystem : MonoBehaviour
     public bool canDecrease;
     public bool canIncrease;
     public Slider motivationSlider;
+    public GameObject GameLoseCanvas;
+
+    public TimeTracking timetrackerScript;
+    public int miniGamesCompleted = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,14 @@ public class motivationSystem : MonoBehaviour
         if (canIncrease)
         {
             currentMotivation += motivationIncreaser * Time.deltaTime;
+        }
+
+        if (motivationSlider.value == 0f)
+        {
+            GameLoseCanvas.SetActive(true);
+            canDecrease = false;
+            canIncrease = false;
+            timetrackerScript.doTime = false;
         }
     }
 

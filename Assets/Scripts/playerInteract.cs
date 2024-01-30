@@ -40,7 +40,6 @@ public class playerInteract : MonoBehaviour
     public GameObject rubbishPanelPM;
 
 
-
     public TimeTracking timeTrackScript;
     public bool canLeave;
     public bool canBed;
@@ -57,17 +56,12 @@ public class playerInteract : MonoBehaviour
             }
         }
 
-        if (col.gameObject.name == "showerAM")
-        {
-
-        }
 
         else if (col.gameObject.tag == "buttonGame")
         {
             uiPromptSpace.enabled = true;
             if (Input.GetKey(KeyCode.Space))
             {
-                uiPromptSpace.enabled = false;
                 buttonGamePanel.SetActive(true);
                 uiPromptSpace.enabled = false;
             }
