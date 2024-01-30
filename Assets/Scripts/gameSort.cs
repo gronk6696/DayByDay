@@ -7,38 +7,42 @@ using TMPro;
 
 public class gameSort : MonoBehaviour
 {
-    public GameObject ballBlue, ballRed;
-    public GameObject shuteSpawn, shuteBlue, shuteRed;
+    public GameObject sortGameCamera;
+    public GameObject mainCamera;
 
-    public float spawnInterval = 2f;
-    //amount of balls dropped each time you play the minigame
-    public int balls = 4;
-    public int pointsScored;
-    public int maxPoints = 5;
-
-    public Camera minigameCamera;
-    public Camera mainCamera;
     public bool gamePlay;
 
-    int ballsLeft;
+    public GameObject shuteSpawn;
+    public GameObject ballBlue, ballRed;
+
+    public float spawnInterval = 2f;
+    public int TotalBallsToDrop;
+    public int pointsScored;
+    public int pointsNeededToWin;
+
 
     void Start()
     {
-        //ballsLeft = balls;
-
         
     }
 
-    IEnumerator SpawnBalls()
+    public void startGame()
     {
-        for (int i = 0; i < maxPoints; i++)
+        StartCoroutine(SpawnBalls());
+        pointsScored = 0;
+    }
+
+    public IEnumerator SpawnBalls()
+    {
+        for (int i = 0; i < TotalBallsToDrop; i++)
         {
-            SpawnBall();
+            InstantiateBall();
+            
             yield return new WaitForSeconds(spawnInterval);
         }
 
-        // end of minigame
-        ScoreLogic();
+        //end of minigame
+        GameComplete();
     }
 
     public void getPoint()
@@ -46,25 +50,9 @@ public class gameSort : MonoBehaviour
         pointsScored++;
     }
 
-    public void startGame()
+    public void InstantiateBall()
     {
-        Debug.Log("works");
-        pointsScored = 0;
-        SpawnBalls();
-    }
-
-
-    void Update()
-    {
-        if(maxPoints <= pointsScored)
-        {
-            minigameCamera.enabled = false;
-            mainCamera.enabled = true;
-        }
-    }
-
-    void SpawnBall()
-    {
+        //Debug.Log("spawning balls");
         float randomValue = Random.Range(0f, 1f);
 
         if (randomValue < 0.5f)
@@ -75,12 +63,20 @@ public class gameSort : MonoBehaviour
         {
             Instantiate(ballBlue, shuteSpawn.transform.position, shuteSpawn.transform.rotation);
         }
-
-        //ballsLeft -= 1;
     }
 
-    private void ScoreLogic()
+    private void GameComplete()
     {
-        //if balls sorted correctly, boost to motivation? otherwise negative motivation
+        if(pointsScored >= pointsNeededToWin)
+        {
+            Debug.Log("you win :D"); 
+        }
+        else
+        {
+            Debug.Log("you lose! Fuck you!");
+        }
+
+        sortGameCamera.SetActive(false);
+        mainCamera.SetActive(true);
     }
 }

@@ -18,8 +18,8 @@ public class playerInteract : MonoBehaviour
     public GameObject TVPanel;
     public GameObject laptopPanel;
 
-    public Camera sortGameCamera;
-    public Camera mainCamera;
+    public GameObject sortGameCamera;
+    public GameObject mainCamera;
     public gameSort gameScoreStart;
 
 
@@ -45,6 +45,9 @@ public class playerInteract : MonoBehaviour
     public bool canLeave;
     public bool canBed;
 
+
+   
+
     void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "interact")
@@ -65,6 +68,7 @@ public class playerInteract : MonoBehaviour
         else if (col.gameObject.tag == "buttonGame")
         {
             uiPromptSpace.enabled = true;
+            Debug.Log("Colliding!");
             if (Input.GetKey(KeyCode.Space))
             {
                 uiPromptSpace.enabled = false;
@@ -113,10 +117,10 @@ public class playerInteract : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 uiPromptSpace.enabled = false;
-                //gameScoreStart.startGame();
-                sortGameCamera.enabled = true;
-                mainCamera.enabled = false;
                 gameScoreStart.startGame();
+                sortGameCamera.SetActive(true);
+                mainCamera.SetActive(false);
+                Destroy(col.gameObject);
             }
         }
 
@@ -155,9 +159,11 @@ public class playerInteract : MonoBehaviour
         phonePanel.SetActive(false);
         TVPanel.SetActive(false);
         laptopPanel.SetActive(false);
-        sortGameCamera.enabled = false;
-        
+        sortGameCamera.SetActive(false);
+
     }
+
+
 
     private void Update()
     {

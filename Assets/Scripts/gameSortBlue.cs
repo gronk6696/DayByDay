@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class gameSortBlue : MonoBehaviour
 {
-    public int scoreSort;
     public gameSort gameSortScr;
 
     void Start()
@@ -18,10 +17,12 @@ public class gameSortBlue : MonoBehaviour
         {
             gameSortScr.getPoint();
             Destroy(col.gameObject);
+            Debug.Log("Score!");
         }
         else if (col.gameObject.tag == "ballRed")
         {
             Destroy(col.gameObject);
+            Debug.Log("Miss!");
         }   
     }
 }
