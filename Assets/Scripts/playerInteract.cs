@@ -50,32 +50,20 @@ public class playerInteract : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.tag == "interact")
+
+
+        if (col.gameObject.tag == "buttonGame")
         {
             uiPromptSpace.enabled = true;
             if (Input.GetKey(KeyCode.Space))
             {
-                Destroy(col.gameObject);
-                uiPromptSpace.enabled = false;
-            }
-        }
-
-        if (col.gameObject.name == "showerAM")
-        {
-
-        }
-
-        else if (col.gameObject.tag == "buttonGame")
-        {
-            uiPromptSpace.enabled = true;
-            Debug.Log("Colliding!");
-            if (Input.GetKey(KeyCode.Space))
-            {
+                col.gameObject.SetActive(false);
                 uiPromptSpace.enabled = false;
                 buttonGamePanel.SetActive(true);
-                uiPromptSpace.enabled = false;
+
             }
         }
+
         else if (col.gameObject.tag == "knife")
         {
             staticPanel.SetActive(true);
@@ -139,7 +127,7 @@ public class playerInteract : MonoBehaviour
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "buttonGame" || col.gameObject.tag == "interact" || col.gameObject.tag == "phone" || col.gameObject.tag == "television" || col.gameObject.tag == "laptop" || col.gameObject.tag == "sortGame")
+        if (col.gameObject.tag == "buttonGame" || col.gameObject.tag == "phone" || col.gameObject.tag == "television" || col.gameObject.tag == "laptop" || col.gameObject.tag == "sortGame")
         {
             uiPromptSpace.enabled = false;
         }

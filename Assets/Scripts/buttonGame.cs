@@ -9,7 +9,6 @@ using TMPro;
 
 public class buttonGame : MonoBehaviour
 {
-    public GameObject physicalObject;
     public GameObject gamePanel;
     public List <Button> buttons;
     public List<Button> shuffledButtons;
@@ -67,7 +66,7 @@ public class buttonGame : MonoBehaviour
 
         else if (win)
         {
-            physicalObject.SetActive(false);
+            RestartTheGame();
             gamePanel.SetActive(false);
         }
         yield return new WaitForSeconds(2f);

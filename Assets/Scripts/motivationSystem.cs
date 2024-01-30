@@ -4,16 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class motivationSystem : MonoBehaviour
 {
 
     public float currentMotivation = 200f;
-    public float motivationDropper = 5f;
+    public float motivationDropper = 1f;
     public float motivationIncreaser = 1f;
     public bool canDecrease;
     public bool canIncrease;
     public Slider motivationSlider;
+
+    public GameObject timePanel;
+    public GameObject endGame;
+    public GameObject spacePrompt;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +40,16 @@ public class motivationSystem : MonoBehaviour
         {
             currentMotivation += motivationIncreaser * Time.deltaTime;
         }
+
+
+        if(currentMotivation < 0)
+        {
+            timePanel.SetActive(false);
+            endGame.SetActive(true);
+        }
     }
+
+    
 
     public void startCountdown()
     {

@@ -30,7 +30,6 @@ public class TimeTracking : MonoBehaviour
     public GameObject microwaveAM;
     public GameObject bathroomSinkAM;
     public GameObject showerAM;
-    public GameObject toiletAM;
     public GameObject trashAM;
     public GameObject dishesAM;
     public GameObject dustAM;
@@ -38,10 +37,11 @@ public class TimeTracking : MonoBehaviour
     public GameObject microwavePM;
     public GameObject bathroomSinkPM;
     public GameObject showerPM;
-    public GameObject toiletPM;
     public GameObject trashPM;
     public GameObject dishesPM;
     public GameObject dustPM;
+
+    public Material skybox2;
 
 
     private void Start()
@@ -62,7 +62,6 @@ public class TimeTracking : MonoBehaviour
         microwavePM.SetActive(false);
         bathroomSinkPM.SetActive(false);
         showerPM.SetActive(false);
-        toiletPM.SetActive(false);
         trashPM.SetActive(false);
         dishesPM.SetActive(false);
         dustAM.SetActive(false);
@@ -128,6 +127,7 @@ public class TimeTracking : MonoBehaviour
         promptBed.enabled = false;
         timeSkipAnim.SetActive(true);
         morning = false;
+        RenderSettings.skybox = skybox2;
         timer = 1200.0f;
         doTime = false;
         yield return new WaitForSeconds(10.0f);
@@ -137,13 +137,11 @@ public class TimeTracking : MonoBehaviour
 
         microwaveAM.SetActive(false);
         bathroomSinkAM.SetActive(false);
-        toiletAM.SetActive(false);
         showerAM.SetActive(false);
 
         doTime = true;
         microwavePM.SetActive(true);
         bathroomSinkPM.SetActive(true);
-        toiletPM.SetActive(true);
         showerPM.SetActive(true);
         trashPM.SetActive(true);
         dishesPM.SetActive(true);

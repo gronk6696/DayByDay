@@ -34,7 +34,7 @@ public class gameSort : MonoBehaviour
 
     public IEnumerator SpawnBalls()
     {
-        for (int i = 0; i < TotalBallsToDrop; i++)
+        for (int i = 0; pointsNeededToWin >= pointsScored; i++)
         {
             InstantiateBall();
             
@@ -67,15 +67,6 @@ public class gameSort : MonoBehaviour
 
     private void GameComplete()
     {
-        if(pointsScored >= pointsNeededToWin)
-        {
-            Debug.Log("you win :D"); 
-        }
-        else
-        {
-            Debug.Log("you lose! Fuck you!");
-        }
-
         sortGameCamera.SetActive(false);
         mainCamera.SetActive(true);
     }
