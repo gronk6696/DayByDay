@@ -3164,6 +3164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textTimer: {fileID: 2077072953}
   promptBed: {fileID: 1398103225}
+  timer: 0
   doTime: 0
   randomLocations: []
   location: 
@@ -9362,7 +9363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1398103224
 RectTransform:
   m_ObjectHideFlags: 0

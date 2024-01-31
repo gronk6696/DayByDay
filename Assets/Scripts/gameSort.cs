@@ -28,8 +28,9 @@ public class gameSort : MonoBehaviour
 
     public void startGame()
     {
-        StartCoroutine(SpawnBalls());
         pointsScored = 0;
+        StartCoroutine(SpawnBalls());
+        
     }
 
     public IEnumerator SpawnBalls()

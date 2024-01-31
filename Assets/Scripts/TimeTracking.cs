@@ -9,7 +9,7 @@ public class TimeTracking : MonoBehaviour
 {
     public TMP_Text textTimer, promptBed;
 
-    private float timer;
+    public float timer;
     public bool doTime;
     public List<string> randomLocations = new List<string>();
     public string location;
